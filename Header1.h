@@ -41,13 +41,24 @@ public:
 		}
 	};
 
+	node* gethead() {
+		return this->head;
+	}
+	int getsize() {
+		return this->size;
+	}
+
 	void author() {
-		cout << endl << "Рунец Н. Р.";
+		cout << endl << "Рунец Н. Р." << endl << "Вариант 19";
 	}
 
 	int generator() {
-		srand(time(nullptr));
-		int num = rand() * 200 - 100;
+		//srand(time(nullptr));
+		//int num = rand() % 201 - 100;
+		int rangeMin = -101;
+		int rangeMax = 101;
+		int num = ((double)rand() / RAND_MAX) * (rangeMax - rangeMin) + rangeMin;
+		return num;
 	}
 
 	void addElementFront(int _data)
@@ -185,13 +196,9 @@ public:
 		node* current = head;
 		cout << endl << "__Display__";
 		while (current) {
-			cout << endl << current->data;
+			cout << endl << current->data << endl;
 			current = current->next;
 		}
-	}
-
-	int getSize() {
-		return size;
 	}
 
 	bool operator=(const masiv_class& _other)
@@ -218,7 +225,7 @@ public:
 		for (int i{}; i < this->size;i++) {
 			if (i % 2 == 1)
 			{
-				sum = sum | this->data;
+				sum = sum | current->data;
 			}
 			current = current->next;
 		}
@@ -226,7 +233,7 @@ public:
 		for (int i{}; i < _other.size; i++) {
 			if (i % 2 == 1)
 			{
-				sum = sum | _other.data;
+				sum = sum | current->data;
 			}
 			current = current->next;
 		}
@@ -245,22 +252,22 @@ public:
 		return sum;
 	}
 
-	static int operator-(const masiv_class ths, const masiv_class other) {
-		node* current = ths.head;
-		int max1 = -100, max2 = -100;
-		for (int i{}; i < ths.size; i++) {
-			if (current->data > max) {
-				max1 = current->data;
-			}
-			current = current->next;
-		}
-		current = other.head;
-		for (int i{}; i < other.size; i++) {
-			if (current->data > max) {
-				max2 = current->data;
-			}
-			current = current->next;
-		}
-		return(abs(max1-max2))
-	}
+	//int operator-(const masiv_class other) {
+	//	node* current = this->head;
+	//	int max1 = -100, max2 = -100;
+	//	for (int i{}; i < this->size; i++) {
+	//		if (current->data > max) {
+	//			max1 = current->data;
+	//		}
+	//		current = current->next;
+	//	}
+	//	current = other.head;
+	//	for (int i{}; i < other.size; i++) {
+	//		if (current->data > max) {
+	//			max2 = current->data;
+	//		}
+	//		current = current->next;
+	//	}
+	//	return(abs(max1-max2))
+	//}
 };
