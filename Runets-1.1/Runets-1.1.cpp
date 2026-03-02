@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <stdio.h>
 #include "Header1.h"
 using namespace std;
@@ -38,8 +38,8 @@ void write2file(masiv_class* dMas) {
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    cout << "Hello World!\n";
     masiv_class mas1;
+    mas1.author();
     masiv_class mas2(3);
     mas2.setElement(0, 67);
     mas2.display();
@@ -50,5 +50,14 @@ int main()
     printf("\nобъединение - %d\n", mas2 | mas4);
     printf("\nумножние - %d\n", *mas2);
     printf("\nразность - %d\n", mas2 - mas4);
+    masiv_class mas5(4);
+    mas5.display();
+    mas5.addElementEnd(99);
+    mas5.addElementFront(-99);
+    mas5.insertElement(2, 0); 
+    mas5.display();
+    printf("\n3-uй элемент - %d", mas5.getElement(3));
+    mas5.delElement(0);
+    mas5.display();
 }
 
